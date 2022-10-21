@@ -1,1 +1,26 @@
+# ===============================================
+# ===============================================
+# *\.gitignore
+# ===============================================
+# ===============================================
+
+.vscode
+# shield .vscode folder created by vscode
+
+build
+# shield build folder created by cmake tools in vscode (used to cmake) and pyinstaller
+
+bin
+# shield bin folder for .exe files
+
+dist
+# shield dist folder created by pyinstaller
+
+test.*
+# shield test program
+
 *.code-workspace
+# shield vscode workspace file
+
+*.spec
+# shield python install file
