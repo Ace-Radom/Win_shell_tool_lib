@@ -79,6 +79,9 @@ if args.chinese_calendar:
 #   CC_today = sxtwl.fromSolar( 2020 , 6 , 20 )
     # debug line, test CC_month (测试农历闰月 2020.6.20为农历庚子年闰四月廿九)
 
+#   CC_today = sxtwl.fromSolar( 2022 , 10 , 8 )
+    # debug line, test chinese_calendar print (测试节气输出 2022.10.8为壬寅年九月十三 节气为寒露)
+
     CC_today = sxtwl.fromSolar( today.year , today.month , today.day ) # chinese_calendar today
 
     CC_year = CC_today.getYearGZ( True ) # chinese_calendar year
@@ -94,7 +97,8 @@ if args.chinese_calendar:
 #   print( Gan[CC_year.tg] + Zhi[CC_year.dz] + "年" + CC_month + DayCn[CC_day-1] )
     # debug line
 
-    print( "> 农历" + Gan[CC_year.tg] + Zhi[CC_year.dz] + "年" + CC_month + DayCn[CC_day-1] )
+    print( "> 农历" + Gan[CC_year.tg] + Zhi[CC_year.dz] + "年" + CC_month + DayCn[CC_day-1] , '%s' % jqmc[CC_today.getJieQi()] if CC_today.hasJieQi() 
+                                                                                                                                    else '' )
     # print chinese calendar
 
 if args.timestamp:
