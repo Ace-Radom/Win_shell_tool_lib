@@ -4,7 +4,7 @@
 # ===============================================
 # ===============================================
 #
-# create one file, if this file doesn't exist
+# create one file or folder, if it doesn't exist
 
 import argparse
 
