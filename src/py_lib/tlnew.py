@@ -69,7 +69,8 @@ if not os.path.isabs( new_path ):
     new_path = os.path.abspath( new_path )
 # if there's not one absolute path, get it absolute
 
-print( new_path )
+#print( new_path )
+# debug line
 
 if args.folder:
     create_folder( new_path )
