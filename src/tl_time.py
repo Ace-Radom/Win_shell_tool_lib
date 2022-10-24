@@ -57,7 +57,7 @@ WeekCn = ["星期日" , "星期一" , "星期二" , "星期三" , "星期四" , 
 
 parser = argparse.ArgumentParser( description = 'manual to this script' )
 
-parser.add_argument( '--system_time' , type = bool , default = False )
+parser.add_argument( '--timestamp' , type = bool , default = False )
 parser.add_argument( '--chinese_calendar' , type = bool , default = False )
 # add args definition
 
@@ -67,11 +67,14 @@ args = parser.parse_args()
 print()
 # print begin NULL line
 
-print( "> 现在时间:" , time.strftime( '%Y-%m-%d %H:%M:%S' , time.localtime() ) )
-# print local time in format "Y-M-D H:M:S"
+today = datetime.datetime.today()
+# datetime module: get today
+
+print( "> 现在时间:" , time.strftime( '%Y-%m-%d %H:%M:%S' , time.localtime() ) , WeekCn[today.isoweekday()] )
+# print local time in format "Y-M-D H:M:S" and weekday                                           ↓
+#                                                                                isoweekday begin with 0 end with 6
 
 if args.chinese_calendar:
-    today = datetime.datetime.today()
 
 #   CC_today = sxtwl.fromSolar( 2020 , 6 , 20 )
     # debug line, test CC_month (测试农历闰月 2020.6.20为农历庚子年闰四月廿九)
@@ -92,9 +95,11 @@ if args.chinese_calendar:
     # debug line
 
     print( "> 农历" + Gan[CC_year.tg] + Zhi[CC_year.dz] + "年" + CC_month + DayCn[CC_day-1] )
+    # print chinese calendar
 
-if args.system_time:
+if args.timestamp:
     print( "> 系统时间戳:" , time.time() )
+    # print timestamp
 
 print()
 # print end NULL line
