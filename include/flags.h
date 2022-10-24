@@ -22,12 +22,13 @@ typedef bool STATUS_t;
 
 struct Flags{
     std::string flag;
+    std::string type;
     STATUS_t mode;
     std::string parent_flag_if_necessary;
     std::string command;
 };
 
-#define flags_num 3
+#define flags_num 7
 
 class Commandline_Flags{
     public:
