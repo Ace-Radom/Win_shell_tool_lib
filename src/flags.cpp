@@ -28,8 +28,9 @@ void Commandline_Flags::readin_flags( const int _argc , char** _argv ){
                         }
                     }
                 }
-                std::cout << command << std::endl;
-                //system( command.c_str() );
+//              std::cout << command << std::endl;
+                // debug line
+                system( command.c_str() );
                 break;
             }
         }
