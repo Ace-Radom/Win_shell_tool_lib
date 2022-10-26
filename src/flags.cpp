@@ -10,10 +10,10 @@
 
 Flags flag_lib[] = {
     {},
-    { "time" , "bool" , ROOT , "" , ".\\tltime" },
+    { "time" , "bool" , ROOT , "" , "tltime" },
         { "cc" , "bool" , CHILD , "time" , "--chinese_calendar=true" },
         { "ts" , "bool" , CHILD , "time" , "--timestamp=true" },
-    { "new" , "bool" , ROOT , "" , ".\\tlnew" },
+    { "new" , "bool" , ROOT , "" , "tlnew" },
         { "path" , "string" , CHILD , "new" , "--path" }, // need to add path in func readin_flags
         { "folder" , "bool" , CHILD , "new" , "--folder=true" },
         { "file" , "bool" , CHILD , "new" , "--file=true" }
