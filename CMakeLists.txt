@@ -21,3 +21,5 @@ add_executable(tl ${CPP_SRC_LIST} ${SRC_MAIN})
 file(COPY ${PROJECT_SOURCE_DIR}/src/py_lib/dist/tltime.exe DESTINATION ${PROJECT_SOURCE_DIR}/bin)
 
 file(COPY ${PROJECT_SOURCE_DIR}/src/py_lib/dist/tlnew.exe DESTINATION ${PROJECT_SOURCE_DIR}/bin)
+
+file(COPY ${PROJECT_SOURCE_DIR}/src/py_lib/dist/tldel.exe DESTINATION ${PROJECT_SOURCE_DIR}/bin)
