@@ -60,10 +60,10 @@ def create_file( path ): # create file
     else:
         print( "> File " + path + " already exists" )
 
+# ================================================================ #
+
 new_path = args.path
 # created file / folder path
-
-# ================================================================ #
 
 if not os.path.isabs( new_path ):
     new_path = os.path.abspath( new_path )
