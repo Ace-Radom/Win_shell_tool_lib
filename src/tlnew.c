@@ -7,15 +7,15 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-/* define out own warning functions here because err.h is not portable */
-#define warnx(fmt, ...) (fprintf(stderr, fmt, __VA_ARGS__))
-#define warn(fmt, ...) (warnx(fmt ": %s\n", __VA_ARGS__, strerror(errno)))
+/* define our own warning meachanisms here because err.h does not seem portable */
+#define warnx(fmt, ...) (fprintf(stderr, fmt "\n", __VA_ARGS__))
+#define warn(fmt, ...) (warnx(fmt ": %s", __VA_ARGS__, strerror(errno)))
 
 /* masks for the permission of new files */
 #define DPERMMASK 0755
 #define FPERMMASK 0644
 
-/* Windows: the mkdir() function differs from the POSIX mkdir() */
+/* the mkdir() function on Windows differs from the POSIX mkdir() */
 #ifdef _WIN32
 #define mkdir(fn, mode) mkdir(fn)
 #endif
@@ -26,7 +26,7 @@ static int create_parent(char *fn) {
 	struct stat st;
 	char *cfn = strdup(fn);
 	if (!cfn)
-		return -1;
+		return warn("Memory allocation error while trying to create %s", fn),-1;
 	char *dn = dirname(cfn);
 	if (stat(dn, &st)) {
 		int perm = create_parent(dn);
@@ -59,7 +59,7 @@ static int create_parent(char *fn) {
 static void tlnew(char *fn) {
 	int perm = create_parent(fn);
 	if (perm < 0)
-		return (void) warnx("Failed to create parent directory for %s\n", fn);
+		return (void) warnx("Failed to create parent directory for %s", fn);
 	if (isdir) {
 		if (mkdir(fn, perm & DPERMMASK))
 			warn("Failed to create directory %s", fn);
