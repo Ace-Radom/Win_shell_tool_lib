@@ -16,7 +16,11 @@ Flags flag_lib[] = {
     { "new" , "bool" , ROOT , "" , "tlnew" },
         { "path" , "string" , CHILD , "new" , "--path" }, // need to add path in func readin_flags
         { "folder" , "bool" , CHILD , "new" , "--folder=true" },
-        { "file" , "bool" , CHILD , "new" , "--file=true" }
+        { "file" , "bool" , CHILD , "new" , "--file=true" },
+    { "del" , "bool" , ROOT , "" , "tldel" },
+        { "path" , "string" , CHILD , "del" , "--path" }, // need to add path in func readin_flags
+        { "folder" , "bool" , CHILD , "del" , "--folder=true" },
+        { "file" , "bool" , CHILD , "del" , "--file=true" }
 };
 
 void Commandline_Flags::readin_flags( const int _argc , char** _argv ){
