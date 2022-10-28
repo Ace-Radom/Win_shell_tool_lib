@@ -28,7 +28,7 @@ struct Flags{
     std::string command;
 };
 
-#define flags_num 11
+#define flags_num 15
 
 class Commandline_Flags{
     public:

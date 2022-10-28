@@ -20,7 +20,11 @@ Flags flag_lib[] = {
     { "del" , "bool" , ROOT , "" , "tldel" },
         { "path" , "string" , CHILD , "del" , "--path" }, // need to add path in func readin_flags
         { "folder" , "bool" , CHILD , "del" , "--folder=true" },
-        { "file" , "bool" , CHILD , "del" , "--file=true" }
+        { "file" , "bool" , CHILD , "del" , "--file=true" },
+    { "os" , "bool" , ROOT , "" , "tlos" },
+        { "cs" , "bool" , CHILD , "os" , "--Computer_System=true" },
+        { "hardware" , "bool" , CHILD , "os" , "--Hardware=true" },
+        { "sn" , "bool" , CHILD , "os" , "--Serial_Number=true" }
 };
 
 void Commandline_Flags::readin_flags( const int _argc , char** _argv ){
