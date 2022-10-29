@@ -16,6 +16,9 @@ bin
 dist
 # shield dist folder created by pyinstaller
 
+__pycache__
+# shield python cache
+
 test.*
 # shield test program
 
@@ -24,3 +27,5 @@ test.*
 
 *.spec
 # shield python install file
+
+*.pyc
